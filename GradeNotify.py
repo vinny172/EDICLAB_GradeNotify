@@ -27,7 +27,7 @@ class GUI_Window(Frame):
         
     def loadconfig(self):
         try:
-            config_file = open('cfg.ini','r')
+            config_file = open(r'./cfg.ini','r')
         except:
             return
         self.loadlist = config_file.read().splitlines()      
@@ -41,7 +41,7 @@ class GUI_Window(Frame):
         self.default_testmail.set(self.loadlist[3])
         
     def loadexcel(self):
-        self.data = xlrd.open_workbook('./Grades.xlsx')
+        self.data = xlrd.open_workbook(r'./Grades.xlsx')
         self.student = self.data.sheet_by_name(u'學生通訊錄')
         self.score_sheet = self.data.sheet_by_name(u'成績表')
         self.setup = self.data.sheet_by_name(u'設定')
